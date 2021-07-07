@@ -1,7 +1,7 @@
 import socket
 
 HOST: str = "127.0.0.1"
-PORT: int = 1000
+PORT: int = 8000
 
 with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
     try:
@@ -11,7 +11,5 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
         exit()
     message = "Hello"
     s.sendall(message.encode())
-    data = s.recv(1024)
-    data = data.decode()
-    print("new data is " + data)
-    s.close()
+    data = s.recv(1024).decode()
+    print(data)
