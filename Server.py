@@ -1,8 +1,14 @@
 import socket
+from Palindrome import all_palindromic_substrings
+
+my_string = "zvaabamoabaa"
+palindromic_form = all_palindromic_substrings(my_string)
+print(palindromic_form)
+
+exit()
 
 HOST: str = "127.0.0.1"
 PORT: int = 8000
-
 try:
     with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
         print("Socket successfully created")
