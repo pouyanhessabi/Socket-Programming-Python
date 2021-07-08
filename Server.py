@@ -1,12 +1,6 @@
 import socket
 from Palindrome import all_palindromic_substrings
 
-my_string = "zvaabamoabaa"
-palindromic_form = all_palindromic_substrings(my_string)
-print(palindromic_form)
-
-exit()
-
 HOST: str = "127.0.0.1"
 PORT: int = 8000
 try:
@@ -22,7 +16,12 @@ try:
                 data = conn.recv(1024)
                 data = data.decode()
                 print("My data is: " + data)
-                new_data = data + " World"
+                palindromic_form = all_palindromic_substrings(data)
+                if palindromic_form:
+                    print(palindromic_form)
+                    new_data = "True"
+                else:
+                    new_data = "False"
                 conn.sendall(new_data.encode())
 
 except socket.error as err:

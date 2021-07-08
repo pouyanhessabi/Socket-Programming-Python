@@ -9,7 +9,7 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
     except:
         print("Couldn't find Server!")
         exit()
-    message = "Hello"
+    message = input()
     s.sendall(message.encode())
     data = s.recv(1024).decode()
     print(data)
