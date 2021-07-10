@@ -31,3 +31,22 @@ def all_palindromic_substrings(string):
         expand(string, i, i + 1, s)
     s = palindrome_more_than_one(s)
     return s
+
+
+def check_if_palindrome(string: str):
+    dictionary = {}
+    for i in range(len(string)):
+        if string[i] in dictionary:
+            dictionary[string[i]] += 1
+        else:
+            dictionary[string[i]] = 1
+
+    tmp_list = []
+    for i in dictionary:
+        if dictionary[i] % 2 != 0:
+            tmp_list.append(i)
+
+    if len(tmp_list) > 1:
+        return False
+    else:
+        return True

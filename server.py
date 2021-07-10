@@ -1,5 +1,5 @@
 import socket
-from Palindrome import all_palindromic_substrings
+from palindrome import check_if_palindrome
 
 # to save received string and calculated palindrome
 cache_dict = {}
@@ -25,9 +25,9 @@ try:
                     response_bool = cache_dict[data]
                     # print("it was in cache")
                 else:
-                    palindromic_form = all_palindromic_substrings(data)
-                    if palindromic_form:
-                        # print(palindromic_form)
+                    palindrome_bool = check_if_palindrome(data)
+                    if palindrome_bool:
+                        # print(palindrome_bool)
                         response_bool = "True"
                     else:
                         response_bool = "False"
